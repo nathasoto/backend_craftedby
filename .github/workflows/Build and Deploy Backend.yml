@@ -68,6 +68,7 @@ jobs:
         uses: webfactory/ssh-agent@v0.5.4
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
       - name: copy
         run: |
              scp -rp docker-compose.deploy.yaml campus@163.172.178.227:~/craftedby/docker-compose.yaml
