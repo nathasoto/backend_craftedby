@@ -68,8 +68,11 @@ jobs:
         uses: webfactory/ssh-agent@v0.5.4
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
       - name: copy
-          scp -rp C:\Users\nathalie.soto\craftedby\docker-compose.deploy.yaml campus@163.172.178.227:~/craftedby/docker-compose.yaml
+        run: |
+            scp -rp C:\Users\nathalie.soto\craftedby\docker-compose.deploy.yaml campus@163.172.178.227:~/craftedby/docker-compose.yaml
+
       - name: Deploy to server
         run: |
             ssh -o StrictHostKeyChecking=no campus@163.172.178.227 '
