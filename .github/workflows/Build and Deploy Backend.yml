@@ -73,6 +73,6 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no campus@163.172.178.227 '
             cd ~/craftedby;
-            docker-compose pull backend;
-            docker-compose up -d backend;
+            docker-compose pull api_laravel;
+            docker-compose up -d api_laravel;
           '
