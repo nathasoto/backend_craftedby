@@ -126,7 +126,7 @@ jobs:
 
       - name: Copy Docker Compose file to server
         run: |
-          scp -rp docker-compose.deploy.yaml campus@163.172.178.227:~/craftedby/docker-compose.yaml
+          scp -rp C:\Users\nathalie.soto\craftedby\docker-compose.deploy.yaml campus@163.172.178.227:~/craftedby/docker-compose.yaml
 
       - name: Deploy to server
         run: |
