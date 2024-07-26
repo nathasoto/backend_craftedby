@@ -118,7 +118,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: natha2023/backend-craftedby:latest
+          tags: natha2023/backend-craftedby:1.0.7
 
       # Set up SSH agent with the provided private key
       - name: Set up SSH agent
