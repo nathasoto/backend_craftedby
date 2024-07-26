@@ -26,8 +26,6 @@ Route::get('/products/{product}', [ProductController::class, 'show']);
 
 
 
-
-
 //User
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);

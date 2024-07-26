@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:5173'],
+    'allowed_origins' => ['https://www.soto.devlog25.le-campus.eu'],
 
     'allowed_origins_patterns' => [],
 
