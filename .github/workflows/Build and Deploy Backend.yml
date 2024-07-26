@@ -64,6 +64,11 @@ jobs:
           push: true
           tags: natha2023/backend-craftedby:latest
 
+      - name: Set up SSH agent
+        uses: campus/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
       - name: Deploy to server
         run: |
           ssh -o StrictHostKeyChecking=no campus@163.172.178.227 '
@@ -71,5 +76,3 @@ jobs:
             docker-compose pull backend;
             docker-compose up -d backend;
           '
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
