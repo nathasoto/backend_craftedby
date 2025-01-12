@@ -19,14 +19,5 @@ Route::middleware('auth')->group(function () {
 
 });
 
-// Rutas de productos fuera de la autenticación
-//Route::get('/products', [ProductController::class, 'index']);
-//Route::get('/products/{product}', [ProductController::class, 'show']);
-//Route::post('/products', [ProductController::class, 'store']);
-
-// Rutas CRUD de productos dentro de la autenticación
-//Route::middleware('auth')->group(function () {
-//    Route::resource('products', ProductController::class)->except(['index', 'show']);
-//});
 
 require __DIR__.'/auth.php';

@@ -14,23 +14,26 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        // Creating an admin user with a hashed password
         User::create([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
-            'password' => bcrypt('12345678')
-        ])->assignRole('admin');
+            'password' => bcrypt('12345678')// Password is hashed using bcrypt
+        ])->assignRole('admin');// Assigning the 'admin' role
 
+        // Creating a client user with a hashed password
         User::create([
             'name' => 'client',
             'email' => 'client@gmail.com',
-            'password' => bcrypt('12345678')
-        ])->assignRole('authClient');
+            'password' => bcrypt('12345678')// Password is hashed using bcrypt
+        ])->assignRole('authClient');// Assigning the 'authClient' role
 
+        // Creating an artisan user with a hashed password
         User::create([
             'name'=>'artisan',
             'email'=>'artisan@gmail.com',
-            'password'=>bcrypt('12345678')
-        ])->assignRole('artisan');
+            'password'=>bcrypt('12345678')// Password is hashed using bcrypt
+        ])->assignRole('artisan'); // Assigning the 'artisan' role
 
 
         // Generates 5 fake users using the User model factory and saves them to the database

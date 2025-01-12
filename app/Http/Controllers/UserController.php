@@ -109,7 +109,7 @@ class UserController extends Controller
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
-            'role' => 'nullable|string|in:artisan,authenticated_client',
+            'role' => 'required|string|in:artisan,authenticated_client',
         ]);
 
         // Assign the role based on user selection
@@ -167,7 +167,7 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  string  $id
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      *
      * @OA\Get(
      *     path="/api/users/{id}",
@@ -325,4 +325,5 @@ class UserController extends Controller
 
         return response()->json($addresses, 200);
     }
+
 }

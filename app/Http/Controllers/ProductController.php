@@ -124,15 +124,8 @@ class ProductController extends Controller
         $product->categories_id = $request['categories_id'];
         $product->shop_id = $request['shop_id'];
 
-        // Get the ID of the authenticated user
-        $userId = Auth::id();
-
-        // Assign user_id of the authenticated user
+        $userId = Auth::check() ? Auth::id() : 1;
         $product->user_id = $userId;
-
-        // Assign a default user_id (in this case, user with ID 5)
-//        $defaultUserId = 5;
-//        $product->user_id = $defaultUserId;
 
         // Save the product to the database
         $product->save();
@@ -146,14 +139,13 @@ class ProductController extends Controller
         // Return the created product with attached colors and sizes
         return response()->json($product, 201);
 
-
     }
 
     /**
      * Display the specified resource.
      *
      * @param  string  $id
-     * @return \Illuminate\Http\JsonResponse
+     * @return ProductDetailResource|\Illuminate\Http\JsonResponse
      *
      * @OA\Get(
      *     path="/api/products/{id}",

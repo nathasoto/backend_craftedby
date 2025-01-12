@@ -1,2 +1,4 @@
+# Apply these rules to all search engine bots
 User-agent: *
-Disallow:
+# Disallow all access to the API to prevent it from being crawled by search engines
+Disallow:/

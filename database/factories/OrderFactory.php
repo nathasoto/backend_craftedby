@@ -18,7 +18,7 @@ class OrderFactory extends Factory
     public function definition(): array
     {
         return [
-            'total' => fake()->randomFloat(2, 10, 1000),
+//            'total' => fake()->randomFloat(2, 10, 1000),
             'shipping_address' => fake()->address,
             'mobile_phone'=> fake()->phoneNumber,
             'status' => fake()->randomElement(['pending', 'processing', 'shipped', 'delivered']),

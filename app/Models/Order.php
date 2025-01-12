@@ -20,7 +20,6 @@ class Order extends Model
     ];
 
 
-
     public function user(): BelongsTo
     {
         // Define a belongs-to relationship between the Order model and the User model
@@ -37,7 +36,6 @@ class Order extends Model
         parent::boot();
 
         static::deleting(function ($order) {
-            // Eliminar las relaciones en la tabla pivote
             $order->products()->detach();
         });
     }

@@ -24,9 +24,9 @@ The application features three user roles:
 
 - PHP >= 8.2.4
 - Composer >= 2.7.2
-- laravel/breeze >= 2.0
 - laravel/framework => 11.0
 - laravel/sanctum => 4.0
+- laravel/Spatie
 - laravel/tinker => 2.9
 - MySQL
 

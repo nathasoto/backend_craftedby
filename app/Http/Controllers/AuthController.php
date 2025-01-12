@@ -31,7 +31,7 @@ class AuthController extends Controller
 
             // Return the authentication token and token type as a JSON response
             return response()->json([
-                'message' => 'Successfully login',
+                'message' => 'Successfully login ',
                 'token' => $token,
                 'token_type' => 'Bearer',
             ]);
@@ -53,7 +53,10 @@ class AuthController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
             'role' => 'nullable|string|in:artisan,authClient',
-        ]);
+       ],
+//        [ 'email.unique' => 'The email address is already registered. Please use a different one.',]
+        );
+
 
         // Assign the role based on user selection
         $role = $request->input('role', );
@@ -89,8 +92,6 @@ class AuthController extends Controller
                 'last_name' => $user->last_name,
                 'email' => $user->email,
                 'role' => $roles->isEmpty() ? 'authClient' : $roles->first(), // Default to authenticated_client if no roles assigned
-                'updated_at' => $user->updated_at,
-                'created_at' => $user->created_at,
                 'id' => $user->id,
             ],
 

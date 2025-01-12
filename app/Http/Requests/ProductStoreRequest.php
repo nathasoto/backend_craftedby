@@ -12,11 +12,11 @@ class ProductStoreRequest extends FormRequest
     /**
      * Determine if the user is authorized to make this request.
      */
-//    public function authorize(): bool
-//    {
-//        // Check if the current user has permission to create the product
-//        return auth()->user()->hasPermissionTo('product.create');
-//    }
+    public function authorize(): bool
+    {
+        // Check if the current user has permission to create the product
+        return auth()->user()->hasPermissionTo('product.create');
+    }
 
     /**
      * Get the validation rules that apply to the request.
@@ -35,8 +35,8 @@ class ProductStoreRequest extends FormRequest
             'history' => 'required|string',
             'image_path' => 'required|string',
             'description' => 'required|string',
-            'categories_id' => 'required|string',
-            'shop_id' => 'required|string',
+            'categories_id' => 'required|exists:categories,id',
+            'shop_id' => 'required|exists:shops,id',
             'color_ids' => 'required|array',
             'color_ids.*' => 'exists:colors,id',
             'size_ids' => 'required|array',
@@ -66,15 +66,15 @@ class ProductStoreRequest extends FormRequest
 
         return [
 
-            'name.required' => 'name is required',
-            'price.required' => 'price is required',
+            'name.required' => 'The product name is required.',
+            'price.required' => 'The price must be specified.',
             'weight.required' => 'weight is required',
             'stock.required' => 'stock is required',
             'material.required' => 'material is required',
             'history_anécdota.required' => 'history_anécdota is required',
             'image_path.required' => 'image_path is required',
             'description.required' => 'description is required',
-            'categories_id.required' => 'categories_id is required',
+            'categories_id.required' => 'The specified category does not exist.',
             'shop_id.required' => 'shop_id is required',
 
         ];

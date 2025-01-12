@@ -37,6 +37,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
+
     /**
      * Get the attributes that should be cast.
      *
@@ -75,12 +77,12 @@ class User extends Authenticatable
         parent::boot();
 
         static::deleting(function ($user) {
-            // Eliminar todas las órdenes asociadas al usuario
+            //Delete all orders associated with the user
             $user->order()->each(function ($order) {
                 $order->delete();
             });
 
-            // Eliminar todas las direcciones asociadas al usuario
+            //Delete all addresses associated with the user
             $user->addresses()->each(function ($address) {
                 $address->delete();
             });

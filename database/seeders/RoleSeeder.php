@@ -20,21 +20,23 @@ class RoleSeeder extends Seeder
         $roleAuthClient = Role::create(['name'=>'authClient']);
 
         //create permission
-        $viewUsersPermission = permission::create(['name'=> 'view.users']);
-        $createProductsPermission = permission::create(['name'=> 'create.product']);
-        $viewOrderPermission = permission::create(['name'=> 'view.order']);
+        $viewUsersPermission = Permission::create(['name'=> 'view.users']);
+        $createProductsPermission = Permission::create(['name'=> 'product.create']);
+        $viewOrderPermission = Permission::create(['name'=> 'view.order']);
 
         //create,update,view,delete
 
         //give permission
-        $roleAdmin->givePermissionTo
-        ($viewUsersPermission,$createProductsPermission,$viewOrderPermission);
-        $roleArtisan->givePermissionTo($createProductsPermission,$viewOrderPermission);
+        $roleAdmin->givePermissionTo([
+            $viewUsersPermission,
+            $createProductsPermission,
+            $viewOrderPermission
+        ]);
+        $roleArtisan->givePermissionTo([
+            $createProductsPermission,
+            $viewOrderPermission
+        ]);
         $roleAuthClient ->givePermissionTo([$viewOrderPermission]);
-
-
-
-
 
     }
 }
